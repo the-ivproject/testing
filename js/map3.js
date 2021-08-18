@@ -83,7 +83,7 @@ function IntitializeMapPage() {
                         'circle-color': '#4264fb',
                         'circle-radius': 0,
                         'circle-stroke-width': 2,
-                        'circle-stroke-color': 'red',
+                        'circle-stroke-color': '#FFFFFF',
                         'circle-opacity': 0
                     },
                 });
