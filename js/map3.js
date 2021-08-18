@@ -21,13 +21,10 @@ function IntitializeMapPage() {
         zoom: 3 // starting zoom
     });
 
-
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(e =>
             map.jumpTo({ center: [e.coords.longitude, e.coords.latitude], zoom: 8 }))
     }
-
-
 
     map.addControl(
         new mapboxgl.GeolocateControl({
@@ -55,16 +52,14 @@ function IntitializeMapPage() {
         type: "GET",
         url: "https://api.mapbox.com/datasets/v1/novus1020/ckpmr3oan039k27ng6lp616xj/features?access_token=" + mapbox_token,
         dataType: "json",
-        delay: 250,
+//         delay: 250,
         success: function (data) {
             console.log('ok')
         },
-//         error: function (x, e) {
-//             console.log("error:  val1 = " + x + " | val2 = " + e);
-//             toastr.error("Error! Something went wrong.", "", "");
-//         }
-    }).error(function () {
-        console.log('error');
+        error: function (x, e) {
+            console.log("error:  val1 = " + x + " | val2 = " + e);
+            toastr.error("Error! Something went wrong.", "", "");
+        }
     }).done(function (data) {
         //--console.log('Novus map data load', data);
             //console.log('Novus map data load');
