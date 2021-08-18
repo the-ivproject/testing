@@ -65,7 +65,7 @@ function IntitializeMapPage() {
 //         }
     }).error(function () {
         console.log('error');
-    }).done(function () {
+    }).done(function (data) {
         //--console.log('Novus map data load', data);
             //console.log('Novus map data load');
             let list = document.getElementById('listing');
