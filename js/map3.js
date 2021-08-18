@@ -57,7 +57,16 @@ function IntitializeMapPage() {
         dataType: "json",
         delay: 250,
         success: function (data) {
-            //--console.log('Novus map data load', data);
+            console.log('ok')
+        },
+//         error: function (x, e) {
+//             console.log("error:  val1 = " + x + " | val2 = " + e);
+//             toastr.error("Error! Something went wrong.", "", "");
+//         }
+    }).error(function () {
+        console.log('error');
+    }).done(function () {
+        //--console.log('Novus map data load', data);
             //console.log('Novus map data load');
             let list = document.getElementById('listing');
             let newEl = document.createElement('ul');
@@ -304,20 +313,6 @@ function IntitializeMapPage() {
                 var data = draw.getAll();
                 map.getSource('fields').setData(data);
             }
-        },
-        error: function (x, e) {
-            console.log("error:  val1 = " + x + " | val2 = " + e);
-            toastr.error("Error! Something went wrong.", "", "");
-        }
-    }).error(function () {
-        console.log('error');
-    }).done(function () {
-        map.on('draw.update', sourceRefresh);
-
-        function sourceRefresh(e) {
-            var data = draw.getAll();
-            map.getSource('fields').setData(data);
-        }
     });
 }
 
